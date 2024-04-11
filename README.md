@@ -88,53 +88,51 @@ var accessToken = oktaHelper.GetAccessToken("username", "password", "openid prof
 oktaHelper.RevokeAccessToken(accessToken);
 ```
 
-
-
-Authentication Endpoints:
-
-/authn: Initiates authentication flows.
-/sessions: Manages user sessions.
-/users: Manages user authentication and credentials.
-/groups: Manages groups and group membership.
-Authorization Endpoints:
-
-/authorize: Initiates OAuth 2.0 authorization flows.
-/token: Issues OAuth 2.0 tokens (access token, refresh token).
-/introspect: Introspects an OAuth 2.0 token.
-/revoke: Revokes OAuth 2.0 tokens.
-/logout: Logs out users and ends sessions.
-/scopes: Manages OAuth 2.0 scopes.
-Multi-Factor Authentication (MFA) Endpoints:
-
-/factors: Manages MFA factors for users.
-/verify: Verifies MFA factors during authentication.
-Password Policy Endpoints:
-
-/password: Manages password-related operations (reset, change, etc.).
-Social Authentication Endpoints:
-
-/authorizationServers: Manages authorization servers for social authentication.
-/identityProviders: Manages identity providers for social authentication.
-Device and Session Management:
-
-/sessions: Manages user sessions and session cookies.
-/sessions/me: Retrieves information about the current user's session.
-/devices: Manages trusted devices for MFA.
-User Consent and Authorization:
-
-/consent: Handles user consent for OAuth 2.0 applications.
-/authorizations: Manages application authorizations and permissions.
-Security Events:
-
-/logs: Retrieves security logs and audit trails.
-/events: Manages event hooks for security events.
-User Management and Profiles:
-
-/users: Manages user accounts, profiles, and attributes.
-/groups: Manages groups, roles, and group memberships.
-Token Management:
-
-/tokens: Manages OAuth 2.0 tokens, token lifetimes, and policies.
+**Authentication Endpoints**:
+    
+    *   `/authn`: Initiates authentication flows.
+    *   `/sessions`: Manages user sessions.
+    *   `/users`: Manages user authentication and credentials.
+    *   `/groups`: Manages groups and group membership.
+*   **Authorization Endpoints**:
+    
+    *   `/authorize`: Initiates OAuth 2.0 authorization flows.
+    *   `/token`: Issues OAuth 2.0 tokens (access token, refresh token).
+    *   `/introspect`: Introspects an OAuth 2.0 token.
+    *   `/revoke`: Revokes OAuth 2.0 tokens.
+    *   `/logout`: Logs out users and ends sessions.
+    *   `/scopes`: Manages OAuth 2.0 scopes.
+*   **Multi-Factor Authentication (MFA) Endpoints**:
+    
+    *   `/factors`: Manages MFA factors for users.
+    *   `/verify`: Verifies MFA factors during authentication.
+*   **Password Policy Endpoints**:
+    
+    *   `/password`: Manages password-related operations (reset, change, etc.).
+*   **Social Authentication Endpoints**:
+    
+    *   `/authorizationServers`: Manages authorization servers for social authentication.
+    *   `/identityProviders`: Manages identity providers for social authentication.
+*   **Device and Session Management**:
+    
+    *   `/sessions`: Manages user sessions and session cookies.
+    *   `/sessions/me`: Retrieves information about the current user's session.
+    *   `/devices`: Manages trusted devices for MFA.
+*   **User Consent and Authorization**:
+    
+    *   `/consent`: Handles user consent for OAuth 2.0 applications.
+    *   `/authorizations`: Manages application authorizations and permissions.
+*   **Security Events**:
+    
+    *   `/logs`: Retrieves security logs and audit trails.
+    *   `/events`: Manages event hooks for security events.
+*   **User Management and Profiles**:
+    
+    *   `/users`: Manages user accounts, profiles, and attributes.
+    *   `/groups`: Manages groups, roles, and group memberships.
+*   **Token Management**:
+    
+    *   `/tokens`: Manages OAuth 2.0 tokens, token lifetimes, and policies.
 
 
 
