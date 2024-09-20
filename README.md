@@ -225,6 +225,78 @@ public class SensitiveDataAttribute : Attribute
 }
 
 
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using System.Linq;
+using System.Reflection;
+
+public class SensitiveDataContractResolver : DefaultContractResolver
+{
+    private readonly bool _maskSensitiveData;
+
+    public SensitiveDataContractResolver(bool maskSensitiveData)
+    {
+        _maskSensitiveData = maskSensitiveData;
+    }
+
+    protected override IList<JsonProperty> CreateProperties(Type type, MemberSerialization memberSerialization)
+    {
+        var properties = base.CreateProperties(type, memberSerialization);
+
+        foreach (var property in properties)
+        {
+            var sensitiveDataAttribute = property.AttributeProvider.GetAttributes(true)
+                .OfType<SensitiveDataAttribute>()
+                .FirstOrDefault();
+
+            if (sensitiveDataAttribute != null)
+            {
+                if (sensitiveDataAttribute.MaskLength == 0)
+                {
+                    // If mask length is 0, skip serialization of this property.
+                    property.ShouldSerialize = _ => false;
+                }
+                else if (sensitiveDataAttribute.MaskLength > 0 && _maskSensitiveData)
+                {
+                    // If mask length is greater than 0, apply masking during serialization.
+                    property.ValueProvider = new MaskedValueProvider(property.ValueProvider, sensitiveDataAttribute.MaskLength);
+                }
+            }
+        }
+
+        return properties;
+    }
+}
+
+public class MaskedValueProvider : IValueProvider
+{
+    private readonly IValueProvider _innerProvider;
+    private readonly int _maskLength;
+
+    public MaskedValueProvider(IValueProvider innerProvider, int maskLength)
+    {
+        _innerProvider = innerProvider;
+        _maskLength = maskLength;
+    }
+
+    public object GetValue(object target)
+    {
+        var originalValue = _innerProvider.GetValue(target)?.ToString();
+        if (originalValue == null || originalValue.Length <= _maskLength)
+        {
+            return new string('*', originalValue?.Length ?? 0); // Fully mask if the string is too short
+        }
+
+        // Mask only the first N characters, and keep the rest
+        var maskedValue = new string('*', _maskLength) + originalValue.Substring(_maskLength);
+        return maskedValue;
+    }
+
+    public void SetValue(object target, object value)
+    {
+        _innerProvider.SetValue(target, value);
+    }
+}
 
 
 
