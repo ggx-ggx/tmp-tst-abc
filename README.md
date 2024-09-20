@@ -210,6 +210,63 @@ catch (Exception ex)
     Console.WriteLine($"Token validation failed: {ex.Message}");
 }
 
+
+using System;
+
+[AttributeUsage(AttributeTargets.Property)]
+public class SensitiveDataAttribute : Attribute
+{
+    public int MaskLength { get; }
+
+    public SensitiveDataAttribute(int maskLength = 0)
+    {
+        MaskLength = maskLength; // 0 means remove the property; >0 means mask the first N characters
+    }
+}
+
+
+
+
+
+using Newtonsoft.Json;
+
+public class Program
+{
+    public static void Main()
+    {
+        var user = new UserData
+        {
+            Username = "johndoe",
+            Email = "john@example.com",
+            SSN = "123-45-6789",
+            Address = "123 Main St"
+        };
+
+        // Serialize with masking (for logging)
+        string jsonWithMasking = JsonConvert.SerializeObject(user, new JsonSerializerSettings
+        {
+            ContractResolver = new SensitiveDataContractResolver(maskSensitiveData: true),
+            Formatting = Formatting.Indented
+        });
+
+        // Serialize without masking (for API response)
+        string jsonWithoutMasking = JsonConvert.SerializeObject(user, new JsonSerializerSettings
+        {
+            ContractResolver = new SensitiveDataContractResolver(maskSensitiveData: false),
+            Formatting = Formatting.Indented
+        });
+
+        Console.WriteLine("With Masking:\n" + jsonWithMasking);
+        Console.WriteLine("Without Masking:\n" + jsonWithoutMasking);
+    }
+}
+
+
+
+
+
+
+
 ```
 
 
