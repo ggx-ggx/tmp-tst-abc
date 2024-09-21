@@ -339,6 +339,119 @@ public class Program
 
 
 
+using System;
+
+public enum NonStringHandling
+{
+    Drop,    // Drop non-string properties
+    Default  // Set non-string properties to default value
+}
+
+[AttributeUsage(AttributeTargets.Property)]
+public class SensitiveDataAttribute : Attribute
+{
+    public int MaskLength { get; }
+    public NonStringHandling HandleNonString { get; }
+
+    public SensitiveDataAttribute(int maskLength = 0, NonStringHandling handleNonString = NonStringHandling.Drop)
+    {
+        MaskLength = maskLength;
+        HandleNonString = handleNonString; // Handle non-string properties (Drop or Default)
+    }
+}
+
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using System.Linq;
+
+public class SensitiveDataContractResolver : DefaultContractResolver
+{
+    private readonly bool _maskSensitiveData;
+
+    public SensitiveDataContractResolver(bool maskSensitiveData)
+    {
+        _maskSensitiveData = maskSensitiveData;
+    }
+
+    protected override IList<JsonProperty> CreateProperties(Type type, MemberSerialization memberSerialization)
+    {
+        var properties = base.CreateProperties(type, memberSerialization);
+
+        foreach (var property in properties)
+        {
+            var sensitiveDataAttribute = property.AttributeProvider.GetAttributes(true)
+                .OfType<SensitiveDataAttribute>()
+                .FirstOrDefault();
+
+            if (sensitiveDataAttribute != null)
+            {
+                if (property.PropertyType != typeof(string))
+                {
+                    if (sensitiveDataAttribute.HandleNonString == NonStringHandling.Drop)
+                    {
+                        // Drop non-string properties with PII
+                        property.ShouldSerialize = _ => false;
+                    }
+                    else if (sensitiveDataAttribute.HandleNonString == NonStringHandling.Default)
+                    {
+                        // Set non-string properties to default value
+                        property.ValueProvider = new DefaultValueProvider(property.ValueProvider, property.PropertyType);
+                    }
+                }
+                else
+                {
+                    if (sensitiveDataAttribute.MaskLength == 0)
+                    {
+                        // Completely remove the string property from serialization
+                        property.ShouldSerialize = _ => false;
+                    }
+                    else if (sensitiveDataAttribute.MaskLength > 0 && _maskSensitiveData)
+                    {
+                        // Apply masking to string properties
+                        property.ValueProvider = new MaskedValueProvider(property.ValueProvider, sensitiveDataAttribute.MaskLength);
+                    }
+                }
+            }
+        }
+
+        return properties;
+    }
+}
+
+
+public class DefaultValueProvider : IValueProvider
+{
+    private readonly IValueProvider _innerProvider;
+    private readonly Type _propertyType;
+
+    public DefaultValueProvider(IValueProvider innerProvider, Type propertyType)
+    {
+        _innerProvider = innerProvider;
+        _propertyType = propertyType;
+    }
+
+    public object GetValue(object target)
+    {
+        // Set to the default value for the property type
+        return GetDefaultValue(_propertyType);
+    }
+
+    public void SetValue(object target, object value)
+    {
+        _innerProvider.SetValue(target, value);
+    }
+
+    private object GetDefaultValue(Type type)
+    {
+        return type.IsValueType ? Activator.CreateInstance(type) : null;
+    }
+}
+
+
+
+
+
 ```
 
 
