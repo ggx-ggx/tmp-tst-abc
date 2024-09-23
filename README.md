@@ -456,4 +456,160 @@ public class DefaultValueProvider : IValueProvider
 
 
 
+thius is a test
 
+
+
+```yaml
+
+
+**# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+        - "27017:27017"    
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+
+  redis:
+    image: redis
+    restart: always
+    ports:
+      - 6379:6379
+    volumes:
+      - ./config/redis.conf:/redis.conf
+    command: [ "redis-server", "/redis.conf" ]
+
+  gxweb:
+    image: rameshkumarcd/gxweb
+    ports:
+        - "8000:80"
+        - "44348:443"
+    depends_on:
+        - mongo
+    links:
+      - mongo**
+
+
+
+```
+
+
+
+
+
+
+
+
+
+```csharp
+[AttributeUsage(AttributeTargets.Class, Inherited = true)]
+public class SensitiveDataHandlerAttribute : Attribute
+{
+}
+
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using System;
+using System.Linq;
+
+public class SensitiveDataContractResolver : DefaultContractResolver
+{
+    private readonly bool _maskSensitiveData;
+
+    public SensitiveDataContractResolver(bool maskSensitiveData)
+    {
+        _maskSensitiveData = maskSensitiveData;
+    }
+
+    protected override IList<JsonProperty> CreateProperties(Type type, MemberSerialization memberSerialization)
+    {
+        // Check if the class has the SensitiveDataHandler attribute
+        if (!type.GetCustomAttributes(typeof(SensitiveDataHandlerAttribute), true).Any())
+        {
+            // If the attribute is missing, return a property with a warning message
+            var warningProperty = new JsonProperty
+            {
+                PropertyName = type.Name.ToLower(),
+                PropertyType = typeof(string),
+                ValueProvider = new StaticValueProvider($"Warning: {type.Name} class not masked for sensitive data. Ignored."),
+                Readable = true,
+                Writable = false,
+                ShouldSerialize = instance => true // Always serialize the warning message
+            };
+
+            return new List<JsonProperty> { warningProperty };
+        }
+
+        // Otherwise, proceed with normal serialization
+        var properties = base.CreateProperties(type, memberSerialization);
+
+        foreach (var property in properties)
+        {
+            var sensitiveDataAttribute = property.AttributeProvider.GetAttributes(true)
+                .OfType<SensitiveDataAttribute>()
+                .FirstOrDefault();
+
+            if (sensitiveDataAttribute != null)
+            {
+                if (property.PropertyType != typeof(string))
+                {
+                    // Handle non-string properties (drop or set to default)
+                    if (sensitiveDataAttribute.HandleNonString == NonStringHandling.Drop)
+                    {
+                        property.ShouldSerialize = _ => false;
+                    }
+                    else if (sensitiveDataAttribute.HandleNonString == NonStringHandling.Default)
+                    {
+                        property.ValueProvider = new DefaultValueProvider(property.ValueProvider, property.PropertyType);
+                    }
+                }
+                else
+                {
+                    if (sensitiveDataAttribute.MaskLength == 0)
+                    {
+                        property.ShouldSerialize = _ => false;
+                    }
+                    else if (sensitiveDataAttribute.MaskLength > 0 && _maskSensitiveData)
+                    {
+                        property.ValueProvider = new MaskedValueProvider(property.ValueProvider, sensitiveDataAttribute.MaskLength);
+                    }
+                }
+            }
+        }
+
+        return properties;
+    }
+}
+
+public class StaticValueProvider : IValueProvider
+{
+    private readonly object _value;
+
+    public StaticValueProvider(object value)
+    {
+        _value = value;
+    }
+
+    public object GetValue(object target) => _value;
+
+    public void SetValue(object target, object value)
+    {
+        // No-op since it's a static value
+    }
+}
+
+
+
+
+```
