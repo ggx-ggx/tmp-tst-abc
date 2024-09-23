@@ -609,6 +609,33 @@ public class StaticValueProvider : IValueProvider
     }
 }
 
+public class DefaultValueProvider : IValueProvider
+{
+    private readonly IValueProvider _innerProvider;
+    private readonly Type _propertyType;
+
+    public DefaultValueProvider(IValueProvider innerProvider, Type propertyType)
+    {
+        _innerProvider = innerProvider;
+        _propertyType = propertyType;
+    }
+
+    public object GetValue(object target)
+    {
+        // Set to the default value for the property type
+        return GetDefaultValue(_propertyType);
+    }
+
+    public void SetValue(object target, object value)
+    {
+        _innerProvider.SetValue(target, value);
+    }
+
+    private object GetDefaultValue(Type type)
+    {
+        return type.IsValueType ? Activator.CreateInstance(type) : null;
+    }
+}
 
 
 
