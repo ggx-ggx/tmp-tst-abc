@@ -648,6 +648,32 @@ public class DefaultValueProvider : IValueProvider
 AAAAA is an outstanding engineer and a key member of the development team, always proactive in taking on tasks and driving them to completion. His collaborative spirit ensures that projects move forward smoothly, whether he's working with internal team members or external partners. With a great personality for fostering effective teamwork, AAAAA consistently delivers results and makes cross-team coordination seamless. His sharp intellect and analytical thinking shine through in his problem-solving approach, making him an invaluable asset to any project he's involved in.
 
 
+1
+Azure Fundamentals certified with extensive LinkedIn training in DevOps and public cloud. Trained the Expanders team on Okta, becoming a Subject Matter Expert (SME). Planned a demo for the adoption of snapshot testing and provided internal training to the TDC team on BT Gateway, as well as to Expander team members on Okta.
+
+2
+Spent most of the time focused on new projects, but actively contributed to production support by assisting team members in achieving their goals.
+3
+Applied best practices and past experiences with ELK/AppInsight logging to enhance the logging architecture in BT Gateway, leading to improvements in its overall effectiveness.
+
+4
+I have completed all trainings on time with the goal of not just finishing, but also taking detailed notes, downloading attachments, and adding key points to my reading list and key takeaways to my to-do list for future application.
+
+5
+Participated in .NET upgrades, testing, and resolving vulnerabilities, contributing to maintaining and improving system security and performance.
+
+6
+Proactively worked on the backends of mobile projects ahead of time, reviewed and improved the architecture, and aligned the team on backend strategies. Became a BT API expert, and earlier, became an Okta API/integration expert, frequently consulted by colleagues like Sam, Shweta, and Michael.
+
+
+
+
+
+
+
+
+
+
 
 
 
