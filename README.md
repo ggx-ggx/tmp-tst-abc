@@ -77,6 +77,30 @@ public class OktaApiHelper
 /****
 
 
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddControllers()
+    .ConfigureApplicationPartManager(manager =>
+    {
+        if (!builder.Environment.IsDevelopment())
+        {
+            // Exclude the development-only controller from non-development environments
+            var controllerType = typeof(MyDevOnlyController).GetTypeInfo();
+            var part = manager.ApplicationParts.FirstOrDefault(p => p.Name == controllerType.Assembly.GetName().Name);
+            if (part != null && part is AssemblyPart assemblyPart)
+            {
+                assemblyPart.Types.Remove(controllerType);
+            }
+        }
+    });
+
+var app = builder.Build();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();
 
 
 ****/
