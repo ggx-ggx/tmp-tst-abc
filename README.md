@@ -707,3 +707,52 @@ Proactively worked on the backends of mobile projects ahead of time, reviewed an
 
 
 
+function analyzeMergedProperties(jsonArray) {
+  // Merge all row_headers and filter_fields
+  const mergedRowHeaders = jsonArray.flatMap(data => data.row_header);
+  const mergedFilters = jsonArray.flatMap(data => data.filter_fields);
+
+  // Count properties
+  const counts = {
+    rowHeader: countProperties(mergedRowHeaders, [
+      'field_type', 'type', 'hidden', 'not_searchable', 'alignment'
+    ]),
+    filterFields: countProperties(mergedFilters, [
+      'type', 'sortable', 'mandatory', 'field_type'
+    ])
+  };
+
+  // Print formatted tables
+  console.log('\nRow Header Analysis:');
+  Object.entries(counts.rowHeader).forEach(([property, values]) => {
+    console.log(`\n${property.toUpperCase()}:`);
+    console.table(Object.entries(values).map(([key, count]) => ({
+      Value: key === 'null' ? 'NULL' : key,
+      Count: count,
+      Percentage: ((count / mergedRowHeaders.length) * 100).toFixed(1) + '%'
+    })));
+  });
+
+  console.log('\nFilter Fields Analysis:');
+  Object.entries(counts.filterFields).forEach(([property, values]) => {
+    console.log(`\n${property.toUpperCase()}:`);
+    console.table(Object.entries(values).map(([key, count]) => ({
+      Value: key === 'null' ? 'NULL' : key,
+      Count: count,
+      Percentage: ((count / mergedFilters.length) * 100).toFixed(1) + '%'
+    })));
+  });
+}
+
+function countProperties(items, properties) {
+  const counts = {};
+  properties.forEach(prop => {
+    counts[prop] = items.reduce((acc, item) => {
+      const value = item[prop] ?? 'null';
+      acc[value] = (acc[value] || 0) + 1;
+      return acc;
+    }, {});
+  });
+  return counts;
+}
+
