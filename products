@@ -1,0 +1,404 @@
+{
+  "products": [
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "name": "Product 1",
+      "price": 149.99,
+      "image": "https://ui8-crypter-nft.herokuapp.com/images/content/card-pic-1@2x.jpg",
+      "description": "This is product 1. A high-quality item that you'll love.",
+      "stretchImage": true
+    },
+    {
+      "id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+      "name": "Product 2",
+      "price": 89.99,
+      "image": "https://api.dicebear.com/6.x/avataaars/svg?seed=cool",
+      "description": "This is product 2. A high-quality item that you'll love.",
+      "stretchImage": false
+    },
+    {
+      "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+      "name": "Product 3",
+      "price": 129.99,
+      "image": "https://ui8-crypter-nft.herokuapp.com/images/content/card-pic-2@2x.jpg",
+      "description": "This is product 3. A high-quality item that you'll love.",
+      "stretchImage": true
+    },
+    {
+      "id": "f0e9d7c6-b5a8-418f-949a-a29876543210",
+      "name": "Product 4",
+      "price": 199.99,
+      "image": "https://api.dicebear.com/6.x/avataaars/svg?seed=brave",
+      "description": "This is product 4. A high-quality item that you'll love.",
+      "stretchImage": false
+    },
+    {
+      "id": "11223344-5566-7788-9900-aabbccddeeff",
+      "name": "Product 5",
+      "price": 79.99,
+      "image": "https://ui8-crypter-nft.herokuapp.com/images/content/card-pic-6@2x.jpg",
+      "description": "This is product 5. A high-quality item that you'll love.",
+      "stretchImage": true
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440001",
+      "name": "Product 6",
+      "price": 159.99,
+      "image": "https://api.dicebear.com/6.x/avataaars/svg?seed=wise",
+      "description": "This is product 6. A high-quality item that you'll love.",
+      "stretchImage": false
+    },
+    {
+      "id": "6ba7b810-9dad-11d1-80b4-00c04fd430c9",
+      "name": "Product 7",
+      "price": 139.99,
+      "image": "https://ui8-crypter-nft.herokuapp.com/images/content/card-pic-1@2x.jpg",
+      "description": "This is product 7. A high-quality item that you'll love.",
+      "stretchImage": true
+    },
+    {
+      "id": "a1b2c3d4-e5f6-7890-1234-567890abcdeg",
+      "name": "Product 8",
+      "price": 99.99,
+      "image": "https://api.dicebear.com/6.x/avataaars/svg?seed=determined",
+      "description": "This is product 8. A high-quality item that you'll love.",
+      "stretchImage": false
+    },
+    {
+      "id": "f0e9d7c6-b5a8-418f-949a-a29876543211",
+      "name": "Product 9",
+      "price": 179.99,
+      "image": "https://ui8-crypter-nft.herokuapp.com/images/content/card-pic-2@2x.jpg",
+      "description": "This is product 9. A high-quality item that you'll love.",
+      "stretchImage": true
+    },
+    {
+      "id": "11223344-5566-7788-9900-aabbccddeeff1",
+      "name": "Product 10",
+      "price": 149.99,
+      "image": "https://api.dicebear.com/6.x/avataaars/svg?seed=peaceful",
+      "description": "This is product 10. A high-quality item that you'll love.",
+      "stretchImage": false
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440002",
+      "name": "Product 11",
+      "price": 89.99,
+      "image": "https://ui8-crypter-nft.herokuapp.com/images/content/card-pic-6@2x.jpg",
+      "description": "This is product 11. A high-quality item that you'll love.",
+      "stretchImage": true
+    },
+    {
+      "id": "6ba7b810-9dad-11d1-80b4-00c04fd430ca",
+      "name": "Product 12",
+      "price": 129.99,
+      "image": "https://api.dicebear.com/6.x/avataaars/svg?seed=brilliant",
+      "description": "This is product 12. A high-quality item that you'll love.",
+      "stretchImage": false
+    },
+    {
+      "id": "a1b2c3d4-e5f6-7890-1234-567890abcdeh",
+      "name": "Product 13",
+      "price": 199.99,
+      "image": "https://ui8-crypter-nft.herokuapp.com/images/content/card-pic-1@2x.jpg",
+      "description": "This is product 13. A high-quality item that you'll love.",
+      "stretchImage": true
+    },
+    {
+      "id": "f0e9d7c6-b5a8-418f-949a-a29876543212",
+      "name": "Product 14",
+      "price": 79.99,
+      "image": "https://api.dicebear.com/6.x/avataaars/svg?seed=dynamic",
+      "description": "This is product 14. A high-quality item that you'll love.",
+      "stretchImage": false
+    },
+    {
+      "id": "11223344-5566-7788-9900-aabbccddeeff2",
+      "name": "Product 15",
+      "price": 159.99,
+      "image": "https://ui8-crypter-nft.herokuapp.com/images/content/card-pic-2@2x.jpg",
+      "description": "This is product 15. A high-quality item that you'll love.",
+      "stretchImage": true
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440003",
+      "name": "Product 16",
+      "price": 139.99,
+      "image": "https://api.dicebear.com/6.x/avataaars/svg?seed=awesome",
+      "description": "This is product 16. A high-quality item that you'll love.",
+      "stretchImage": false
+    },
+    {
+      "id": "6ba7b810-9dad-11d1-80b4-00c04fd430cb",
+      "name": "Product 17",
+      "price": 99.99,
+      "image": "https://ui8-crypter-nft.herokuapp.com/images/content/card-pic-6@2x.jpg",
+      "description": "This is product 17. A high-quality item that you'll love.",
+      "stretchImage": true
+    },
+    {
+      "id": "a1b2c3d4-e5f6-7890-1234-567890abcdei",
+      "name": "Product 18",
+      "price": 179.99,
+      "image": "https://api.dicebear.com/6.x/avataaars/svg?seed=magical",
+      "description": "This is product 18. A high-quality item that you'll love.",
+      "stretchImage": false
+    },
+    {
+      "id": "f0e9d7c6-b5a8-418f-949a-a29876543213",
+      "name": "Product 19",
+      "price": 149.99,
+      "image": "https://ui8-crypter-nft.herokuapp.com/images/content/card-pic-1@2x.jpg",
+      "description": "This is product 19. A high-quality item that you'll love.",
+      "stretchImage": true
+    },
+    {
+      "id": "11223344-5566-7788-9900-aabbccddeeff3",
+      "name": "Product 20",
+      "price": 89.99,
+      "image": "https://api.dicebear.com/6.x/avataaars/svg?seed=wonderful",
+      "description": "This is product 20. A high-quality item that you'll love.",
+      "stretchImage": false
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440004",
+      "name": "Product 21",
+      "price": 129.99,
+      "image": "https://ui8-crypter-nft.herokuapp.com/images/content/card-pic-2@2x.jpg",
+      "description": "This is product 21. A high-quality item that you'll love.",
+      "stretchImage": true
+    },
+    {
+      "id": "6ba7b810-9dad-11d1-80b4-00c04fd430cc",
+      "name": "Product 22",
+      "price": 199.99,
+      "image": "https://api.dicebear.com/6.x/avataaars/svg?seed=powerful",
+      "description": "This is product 22. A high-quality item that you'll love.",
+      "stretchImage": false
+    },
+    {
+      "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef1",
+      "name": "Product 23",
+      "price": 79.99,
+      "image": "https://ui8-crypter-nft.herokuapp.com/images/content/card-pic-6@2x.jpg",
+      "description": "This is product 23. A high-quality item that you'll love.",
+      "stretchImage": true
+    },
+    {
+      "id": "f0e9d7c6-b5a8-418f-949a-a29876543214",
+      "name": "Product 24",
+      "price": 159.99,
+      "image": "https://api.dicebear.com/6.x/avataaars/svg?seed=incredible",
+      "description": "This is product 24. A high-quality item that you'll love.",
+      "stretchImage": false
+    },
+    {
+      "id": "11223344-5566-7788-9900-aabbccddeeff4",
+      "name": "Product 25",
+      "price": 139.99,
+      "image": "https://ui8-crypter-nft.herokuapp.com/images/content/card-pic-1@2x.jpg",
+      "description": "This is product 25. A high-quality item that you'll love.",
+      "stretchImage": true
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440005",
+      "name": "Product 26",
+      "price": 99.99,
+      "image": "https://api.dicebear.com/6.x/avataaars/svg?seed=focused",
+      "description": "This is product 26. A high-quality item that you'll love.",
+      "stretchImage": false
+    },
+    {
+      "id": "6ba7b810-9dad-11d1-80b4-00c04fd430cd",
+      "name": "Product 27",
+      "price": 179.99,
+      "image": "https://ui8-crypter-nft.herokuapp.com/images/content/card-pic-2@2x.jpg",
+      "description": "This is product 27. A high-quality item that you'll love.",
+      "stretchImage": true
+    },
+    {
+      "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef2",
+      "name": "Product 28",
+      "price": 149.99,
+      "image": "https://api.dicebear.com/6.x/avataaars/svg?seed=brilliant",
+      "description": "This is product 28. A high-quality item that you'll love.",
+      "stretchImage": false
+    },
+    {
+      "id": "f0e9d7c6-b5a8-418f-949a-a29876543215",
+      "name": "Product 29",
+      "price": 89.99,
+      "image": "https://ui8-crypter-nft.herokuapp.com/images/content/card-pic-6@2x.jpg",
+      "description": "This is product 29. A high-quality item that you'll love.",
+      "stretchImage": true
+    },
+    {
+      "id": "11223344-5566-7788-9900-aabbccddeeff5",
+      "name": "Product 30",
+      "price": 129.99,
+      "image": "https://api.dicebear.com/6.x/avataaars/svg?seed=stellar",
+      "description": "This is product 30. A high-quality item that you'll love.",
+      "stretchImage": false
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440006",
+      "name": "Product 31",
+      "price": 199.99,
+      "image": "https://ui8-crypter-nft.herokuapp.com/images/content/card-pic-1@2x.jpg",
+      "description": "This is product 31. A high-quality item that you'll love.",
+      "stretchImage": true
+    },
+    {
+      "id": "6ba7b810-9dad-11d1-80b4-00c04fd430ce",
+      "name": "Product 32",
+      "price": 79.99,
+      "image": "https://api.dicebear.com/6.x/avataaars/svg?seed=radiant",
+      "description": "This is product 32. A high-quality item that you'll love.",
+      "stretchImage": false
+    },
+    {
+      "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef3",
+      "name": "Product 33",
+      "price": 159.99,
+      "image": "https://ui8-crypter-nft.herokuapp.com/images/content/card-pic-2@2x.jpg",
+      "description": "This is product 33. A high-quality item that you'll love.",
+      "stretchImage": true
+    },
+    {
+      "id": "f0e9d7c6-b5a8-418f-949a-a29876543216",
+      "name": "Product 34",
+      "price": 139.99,
+      "image": "https://api.dicebear.com/6.x/avataaars/svg?seed=splendid",
+      "description": "This is product 34. A high-quality item that you'll love.",
+      "stretchImage": false
+    },
+    {
+      "id": "11223344-5566-7788-9900-aabbccddeeff6",
+      "name": "Product 35",
+      "price": 99.99,
+      "image": "https://ui8-crypter-nft.herokuapp.com/images/content/card-pic-6@2x.jpg",
+      "description": "This is product 35. A high-quality item that you'll love.",
+      "stretchImage": true
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440007",
+      "name": "Product 36",
+      "price": 179.99,
+      "image": "https://api.dicebear.com/6.x/avataaars/svg?seed=majestic",
+      "description": "This is product 36. A high-quality item that you'll love.",
+      "stretchImage": false
+    },
+    {
+      "id": "6ba7b810-9dad-11d1-80b4-00c04fd430cf",
+      "name": "Product 37",
+      "price": 149.99,
+      "image": "https://ui8-crypter-nft.herokuapp.com/images/content/card-pic-1@2x.jpg",
+      "description": "This is product 37. A high-quality item that you'll love.",
+      "stretchImage": true
+    },
+    {
+      "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef4",
+      "name": "Product 38",
+      "price": 89.99,
+      "image": "https://api.dicebear.com/6.x/avataaars/svg?seed=graceful",
+      "description": "This is product 38. A high-quality item that you'll love.",
+      "stretchImage": false
+    },
+    {
+      "id": "f0e9d7c6-b5a8-418f-949a-a29876543217",
+      "name": "Product 39",
+      "price": 129.99,
+      "image": "https://ui8-crypter-nft.herokuapp.com/images/content/card-pic-2@2x.jpg",
+      "description": "This is product 39. A high-quality item that you'll love.",
+      "stretchImage": true
+    },
+    {
+      "id": "11223344-5566-7788-9900-aabbccddeeff7",
+      "name": "Product 40",
+      "price": 199.99,
+      "image": "https://api.dicebear.com/6.x/avataaars/svg?seed=charming",
+      "description": "This is product 40. A high-quality item that you'll love.",
+      "stretchImage": false
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440008",
+      "name": "Product 41",
+      "price": 79.99,
+      "image": "https://ui8-crypter-nft.herokuapp.com/images/content/card-pic-6@2x.jpg",
+      "description": "This is product 41. A high-quality item that you'll love.",
+      "stretchImage": true
+    },
+    {
+      "id": "6ba7b810-9dad-11d1-80b4-00c04fd430d0",
+      "name": "Product 42",
+      "price": 159.99,
+      "image": "https://api.dicebear.com/6.x/avataaars/svg?seed=enchanting",
+      "description": "This is product 42. A high-quality item that you'll love.",
+      "stretchImage": false
+    },
+    {
+      "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef5",
+      "name": "Product 43",
+      "price": 139.99,
+      "image": "https://ui8-crypter-nft.herokuapp.com/images/content/card-pic-1@2x.jpg",
+      "description": "This is product 43. A high-quality item that you'll love.",
+      "stretchImage": true
+    },
+    {
+      "id": "f0e9d7c6-b5a8-418f-949a-a29876543218",
+      "name": "Product 44",
+      "price": 99.99,
+      "image": "https://api.dicebear.com/6.x/avataaars/svg?seed=fascinating",
+      "description": "This is product 44. A high-quality item that you'll love.",
+      "stretchImage": false
+    },
+    {
+      "id": "11223344-5566-7788-9900-aabbccddeeff8",
+      "name": "Product 45",
+      "price": 179.99,
+      "image": "https://ui8-crypter-nft.herokuapp.com/images/content/card-pic-2@2x.jpg",
+      "description": "This is product 45. A high-quality item that you'll love.",
+      "stretchImage": true
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440009",
+      "name": "Product 46",
+      "price": 149.99,
+      "image": "https://api.dicebear.com/6.x/avataaars/svg?seed=inspiring",
+      "description": "This is product 46. A high-quality item that you'll love.",
+      "stretchImage": false
+    },
+    {
+      "id": "6ba7b810-9dad-11d1-80b4-00c04fd430d1",
+      "name": "Product 47",
+      "price": 89.99,
+      "image": "https://ui8-crypter-nft.herokuapp.com/images/content/card-pic-6@2x.jpg",
+      "description": "This is product 47. A high-quality item that you'll love.",
+      "stretchImage": true
+    },
+    {
+      "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef6",
+      "name": "Product 48",
+      "price": 129.99,
+      "image": "https://api.dicebear.com/6.x/avataaars/svg?seed=uplifting",
+      "description": "This is product 48. A high-quality item that you'll love.",
+      "stretchImage": false
+    },
+    {
+      "id": "f0e9d7c6-b5a8-418f-949a-a29876543219",
+      "name": "Product 49",
+      "price": 199.99,
+      "image": "https://ui8-crypter-nft.herokuapp.com/images/content/card-pic-1@2x.jpg",
+      "description": "This is product 49. A high-quality item that you'll love.",
+      "stretchImage": true
+    },
+    {
+      "id": "11223344-5566-7788-9900-aabbccddeeff9",
+      "name": "Product 50",
+      "price": 79.99,
+      "image": "https://ui8-crypter-nft.herokuapp.com/images/content/card-pic-2@2x.jpg",
+      "description": "This is product 50. A high-quality item that you'll love.",
+      "stretchImage": true
+    }
+  ]
+}
