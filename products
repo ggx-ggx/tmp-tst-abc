@@ -1,5 +1,5 @@
 {
-  "products": [
+  "data": [
     {
       "id": "550e8400-e29b-41d4-a716-446655440000",
       "name": "Product 1",
@@ -400,5 +400,9 @@
       "description": "This is product 50. A high-quality item that you'll love.",
       "stretchImage": true
     }
-  ]
+  ],
+  "meta": {
+    "currentPage": 1,
+    "nextState" : "a94a8fe5ccb19ba61c4c0873d391e987982fbbd3"
+  }
 }
