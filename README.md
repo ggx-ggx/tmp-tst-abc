@@ -756,3 +756,34 @@ function countProperties(items, properties) {
   return counts;
 }
 
+
+
+
+##aaaas
+
+
+
+
+    public Dictionary<string, string> GenerateFieldMappings()
+    {
+        var type = typeof(TRow);
+        var dictionary = new Dictionary<string, string>();
+
+        foreach (var property in type.GetProperties(BindingFlags.Public | BindingFlags.Instance))
+        {
+            var attribute = property.GetCustomAttribute<DbDataAttribute>();
+            if (attribute != null)
+            {
+                string snakeCaseKey = ConvertToSnakeCase(property.Name);
+                dictionary[snakeCaseKey] = attribute.FieldName;
+            }
+        }
+
+        return dictionary;
+    }
+
+    private string ConvertToSnakeCase(string input)
+    {
+        return string.Concat(input.Select((c, i) =>
+            i > 0 && char.IsUpper(c) ? "_" + char.ToLower(c) : char.ToLower(c).ToString()));
+    }
